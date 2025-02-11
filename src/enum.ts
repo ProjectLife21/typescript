@@ -1,3 +1,26 @@
+enum ServerResponseStatus {
+  Success = 200,
+  Error = 500,
+}
+
+Object.values(ServerResponseStatus).forEach((val) => {
+  if (typeof val === "number") {
+    console.log(val);
+  }
+});
+
+interface ServerResponse {
+  result: ServerResponseStatus;
+  data: string[];
+}
+
+function getServerResponse(): ServerResponse {
+  return {
+    result: ServerResponseStatus.Success,
+    data: ["item1", "item2"],
+  };
+}
+
 enum UserRole {
   ADMIN = "Admin",
   MANAGER = "Manager",
